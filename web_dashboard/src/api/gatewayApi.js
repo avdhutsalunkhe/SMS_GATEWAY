@@ -1,5 +1,15 @@
-const RAW_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://192.168.1.91:8072';
-export const API_BASE_URL = RAW_BASE_URL.replace(/\/+$/, '');
+function getBaseUrl() {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl && envUrl.trim()) {
+    return envUrl.trim();
+  }
+  if (typeof window !== 'undefined' && window.location && window.location.hostname) {
+    return `${window.location.protocol}//${window.location.hostname}:8072`;
+  }
+  return 'http://192.168.1.91:8072';
+}
+
+export const API_BASE_URL = getBaseUrl().replace(/\/+$/, '');
 const ADMIN_API_KEY = import.meta.env.VITE_ADMIN_API_KEY || '';
 
 function adminHeaders(extra = {}) {
