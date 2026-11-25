@@ -4,3 +4,7 @@ INFO:     Waiting for application startup.
 2026-11-25 17:04:54,448 | INFO | sms_gateway | SMS dispatch worker started (send_delay=4.0s, max_retries=3)
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:5072 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49253 - "WebSocket /ws/device?token=rbpssk-sms-gateway-secret-2026" [accepted]
+INFO:     connection open
+2026-11-25 17:06:18,566 | INFO | sms_gateway | Android device connected (conn_id=5881bd33dd4d840d)
+2026-11-25 17:06:18,660 | WARNING | sms_gateway | Android device disconnected (conn_id=5881bd33dd4d840d)

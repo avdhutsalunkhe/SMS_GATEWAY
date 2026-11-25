@@ -6,3 +6,4 @@ __pycache__/
 web_dashboard/node_modules/
 web_dashboard/dist/
 web_dashboard/.env
+logs/

@@ -3,8 +3,8 @@ function getBaseUrl() {
   if (envUrl && envUrl.trim()) {
     return envUrl.trim();
   }
-  if (typeof window !== 'undefined' && window.location && window.location.hostname) {
-    return `${window.location.protocol}//${window.location.hostname}:8072`;
+  if (typeof window !== 'undefined' && window.location && window.location.origin) {
+    return window.location.origin;
   }
   return 'http://192.168.1.91:8072';
 }
