@@ -24,6 +24,8 @@ class GatewayController extends ChangeNotifier {
   static const _prefRecentLogs = 'gateway_recent_logs';
   static const _maxActivityItems = 20;
   static const _reconnectDelay = Duration(seconds: 5);
+  static const defaultServerUrl = 'ws://115.244.240.22:8072/ws/device';
+  static const defaultDeviceToken = 'rbpssk-sms-gateway-secret-2026';
 
   final NativeSmsBridge _bridge;
 
@@ -97,8 +99,12 @@ class GatewayController extends ChangeNotifier {
 
   Future<void> initialize() async {
     final prefs = await SharedPreferences.getInstance();
-    _serverUrl = prefs.getString(_prefServerUrl) ?? '';
-    _token = prefs.getString(_prefDeviceToken) ?? '';
+    final savedUrl = prefs.getString(_prefServerUrl);
+    _serverUrl = (savedUrl != null && savedUrl.trim().isNotEmpty) ? savedUrl : defaultServerUrl;
+
+    final savedToken = prefs.getString(_prefDeviceToken);
+    _token = (savedToken != null && savedToken.trim().isNotEmpty) ? savedToken : defaultDeviceToken;
+
     _isActive = prefs.getBool(_prefIsActive) ?? false;
 
     final savedDate = prefs.getString(_prefStatsDate);

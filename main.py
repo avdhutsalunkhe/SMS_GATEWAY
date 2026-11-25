@@ -510,3 +510,10 @@ async def device_websocket(
         logger.warning("Device WebSocket error (conn_id=%s): %s", conn_id, exc)
     finally:
         await device_manager.disconnect(conn_id)
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run("main:app", host=settings.host, port=settings.port, reload=False)
+

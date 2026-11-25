@@ -1,4 +1,4 @@
-const RAW_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const RAW_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://192.168.1.91:8072';
 export const API_BASE_URL = RAW_BASE_URL.replace(/\/+$/, '');
 const ADMIN_API_KEY = import.meta.env.VITE_ADMIN_API_KEY || '';
 

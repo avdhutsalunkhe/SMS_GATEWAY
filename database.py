@@ -23,6 +23,10 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    host: str = Field(default="0.0.0.0", alias="HOST")
+    port: int = Field(default=8072, alias="PORT")
+    lan_ip: str = Field(default="192.168.1.91", alias="LAN_IP")
+    public_ip: str = Field(default="115.244.240.22", alias="PUBLIC_IP")
     mongodb_uri: str = Field(default="mongodb://localhost:27017", alias="MONGODB_URI")
     mongodb_db_name: str = Field(default="sms_gateway", alias="MONGODB_DB_NAME")
     device_secret: str = Field(
@@ -33,7 +37,7 @@ class Settings(BaseSettings):
     default_project_api_key: str = Field(default="", alias="DEFAULT_PROJECT_API_KEY")
     admin_api_key: str = Field(default="", alias="ADMIN_API_KEY")
     cors_origins: str = Field(
-        default="http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173",
+        default="http://localhost:3000,http://localhost:5173,http://localhost:5174,http://127.0.0.1:3000,http://127.0.0.1:5173,http://127.0.0.1:5174,http://192.168.1.91:5173,http://192.168.1.91:5174,http://192.168.1.91:3000,http://192.168.1.91:8072,*",
         alias="CORS_ORIGINS",
     )
     send_delay_seconds: float = Field(default=4.0, ge=0.0, alias="SEND_DELAY_SECONDS")

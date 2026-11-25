@@ -93,8 +93,8 @@ class _GatewayHomeScreenState extends State<GatewayHomeScreen> {
                     autocorrect: false,
                     decoration: const InputDecoration(
                       labelText: 'Server URL',
-                      hintText: 'wss://your-server.example/ws/device',
-                      helperText: 'Supports wss://, ws://, https://, or LAN IP',
+                      hintText: 'ws://115.244.240.22:8072/ws/device',
+                      helperText: 'Public IP: ws://115.244.240.22:8072/ws/device',
                       border: OutlineInputBorder(),
                     ),
                   ),
